@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/output.css">
+    <link rel="stylesheet" href="./src/css/animate.css">
+</head>
+<body class="flex flex-col justify-center items-center align-center  bg-gradient-to-r from-[#159DE0] via-[#33CCCC] via-0% to-[#00afcb] ">
+    <div class="mainWinner text-center flex justify-between w-96 gap-8 mt-6 ">
+       
+    </div>
+    <div class="flex gap-32 justify-center items-center">
+        <div>
+            
+            <h2>play 1: <span class="playerOneScoreboard">00</span></h2>
+            
+            
+        </div>
+        <div class="boxContainer p-6 rounded-lg bg-yellow-200 mt-16 shadow-2xl">
+            <div class="boxContainer gap-8  grid-cols-3 grid ">
+                
+                <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="1x1"></button>
+                <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="1x2"></button>
+                <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="1x3"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="2x1"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="2x2"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="2x3"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="3x1"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="3x2"></button>
+            <button class="box bg-blue-100 cursor-pointer w-32 h-32 p-8 rounded-lg" onclick="choice(this)" position="3x3"></button>
+        </div>
+    </div>
+    <div>
+        
+        
+        <h2>play 2: <span class="playerTwoScoreboard">00</span> </h2>
+        
+    </div>
+</div>
+    <div class="  w-screen top-0 h-screen absolute text-center align-middle">
+        <div class="w-screen top-0 h-screen bg-red-400 absolute blur-3xl">w</div>
+    </div>
+    <script src="./assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+</body>
+</html>
