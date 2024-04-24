@@ -1,6 +1,7 @@
 let isPone = true;
 let playerOnePoint = 0;
 let playerTwoPoint = 0;
+let clicks = 0;
 const gameRule = [
   ["1x1", "1x2", "1x3"],
   ["2x1", "2x2", "2x3"],
@@ -20,6 +21,7 @@ let PoneScore = document.querySelector(".playerOneScoreboard");
 let PtwoScore = document.querySelector(".playerTwoScoreboard");
 
 function choice(e) {
+  clicks++;
   const position = e.getAttribute("position");
   isPone
     ? (e.classList.add("bg-green-600"),
@@ -28,8 +30,13 @@ function choice(e) {
     : (e.classList.add("bg-red-600"),
       e.setAttribute("disabled", true),
       playerTwo.push(position));
-  checkForWinner();
+
+      clicks===9?(alert("draw"),clicks=0,restart(),who.textContent="!Draw!"):(
+        checkForWinner()
+
+      )
   isPone = !isPone;
+  console.log(clicks);
 }
 
 function checkForWinner() {
@@ -45,13 +52,13 @@ function checkForWinner() {
       plusPlayers();
       restart();
       return;
-    } else {
-      console.log();
-    }
+    } 
+    
   }
 }
 
 function plusPlayers() {
+  clicks=0;
   isPone
     ? (playerOnePoint++, who.textContent="one")
     : (playerTwoPoint++, who.textContent="two");
@@ -234,3 +241,7 @@ function showModal(){
 modal.classList.add("hidden");
   }, 5000);
 }
+let box = document.querySelectorAll(".box");
+box.forEach(element=>{
+  console.log(element.hasAttribute("disabled"));
+})
