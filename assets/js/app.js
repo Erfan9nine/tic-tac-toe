@@ -11,6 +11,8 @@ const gameRule = [
   ["1x2", "2x2", "3x2"],
   ["1x3", "2x3", "3x3"],
 ];
+const modal =document.getElementById("modal");
+const who =document.getElementById("who");
 let isWinnerCelabrate = false;
 let playerOne = [];
 let playerTwo = [];
@@ -37,27 +39,32 @@ function checkForWinner() {
     let rule = gameRule[i];
     let matched = rule.every((position) => currentPlayer.includes(position));
     if (matched) {
-      console.log(isPone ? "Player One wins!" : "Player Two wins!");
+      isPone
+    ? ( who.textContent="one")
+    : ( who.textContent="two");
       plusPlayers();
       restart();
       return;
     } else {
-      console.log("drraw");
+      console.log();
     }
   }
 }
 
 function plusPlayers() {
-  isPone ? (playerOnePoint++ ,alert("p1 win")): (playerTwoPoint++,alert("p1 win"));
-  if (playerOnePoint === 2 || playerTwoPoint === 2) {
-      isWinnerCelabrate = true;
-      winnerCelebrate();
-      alert("2");
-      playerOnePoint=0;
-      playerTwoPoint=0;
-    }
-    PoneScore.textContent = playerOnePoint;
-    PtwoScore.textContent = playerTwoPoint;
+  isPone
+    ? (playerOnePoint++, who.textContent="one")
+    : (playerTwoPoint++, who.textContent="two");
+  if (playerOnePoint === 7 || playerTwoPoint === 7) {
+    isWinnerCelabrate = true;
+    winnerCelebrate();
+    alert("2");
+    playerOnePoint = 0;
+    playerTwoPoint = 0;
+showModal();
+  }
+  PoneScore.textContent = playerOnePoint;
+  PtwoScore.textContent = playerTwoPoint;
   if (isWinnerCelabrate === false) {
     for (let index = 0; index < 3; index++) {
       const count = 200,
@@ -105,6 +112,7 @@ function plusPlayers() {
 }
 
 function winnerCelebrate() {
+
   let love = setInterval(() => {
     const defaults = {
       spread: 360,
@@ -151,7 +159,7 @@ function restart() {
   });
   playerOne = [];
   playerTwo = [];
-  alert("worked");
+
 }
 
 ////////////////////////////////////////////
@@ -220,3 +228,9 @@ const fireworks = new Fireworks(container, {
 });
 
 fireworks.start();
+function showModal(){
+  modal.classList.remove("hidden");
+  setTimeout(() => {
+modal.classList.add("hidden");
+  }, 5000);
+}

@@ -1,0 +1,10 @@
+@font-face {
+    font-family:tic;
+    src: url("../font/ShellMuseum.ttf"),format('.ttf');
+}
+body{
+    font-family: tic;
+}
+h2{
+    font-size: 2.5rem;
+}
